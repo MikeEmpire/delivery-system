@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+  resources :carts
+  root to: 'pages#index'
+  get 'visitors', to: 'visitors#index' 
   devise_for :users
   resources :users
   resources :products
