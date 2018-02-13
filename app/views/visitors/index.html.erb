@@ -44,7 +44,7 @@
                 <% cache product do %>
                   <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
-                      <%= image_tag(product.image_url) %>
+                      <%= link_to (image_tag product.image_url), product %>
                       <h3><%= product.title %></h3>
                       <div class="caption">
                         <h4 class="pull-right"><%= sanitize(product.description) %></h4>
