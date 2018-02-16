@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'paperclip', '~> 5.2.1'
 gem 'dotenv-rails', '~> 2.2.1'
 gem 'aws-sdk', '~> 3.0.1'
+gem 'font-awesome-rails'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
