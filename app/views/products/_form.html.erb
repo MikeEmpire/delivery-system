@@ -27,23 +27,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url, id: :image_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :product_price %>
-  </div>
-
-  <div class="field">
     <%= form.label :stock %>
     <%= form.number_field :stock, id: :product_stock %>
   </div>
 
   <div class="field">
-    <%= form.label :SKU %>
-    <%= form.number_field :SKU, id: :product_SKU %>
+    <%= form.label :category %>
+    <%= form.select :category, Product.categories.keys,
+                               prompt: 'Select a Category',
+                               id: :product_category %>
   </div>
 
   <div class="field">

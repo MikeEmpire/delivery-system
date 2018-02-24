@@ -23,12 +23,12 @@ a {
   color: #000;
 
   &:visited {
-    color: #666;
+    color: white;
   }
 
   &:hover {
     color: #fff;
-    background-color: #000;
+    text-decoration: none;
   }
 }
 
@@ -81,4 +81,5 @@ div {
 
 label {
   display: block;
+  margin-bottom: 0;
 }

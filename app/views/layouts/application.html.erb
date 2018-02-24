@@ -3,15 +3,14 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Luvlivlief" %></title>
+    <%= favicon_link_tag "1UpLogo.png" %>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Luvlivlief" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
+    <%= render 'layouts/navigation' %>
     <main role="main">
        <%= render 'layouts/messages' %>
        <%= yield %>
