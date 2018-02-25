@@ -21,6 +21,11 @@
     <%= form.text_field :cart_id, id: :line_item_cart_id %>
   </div>
 
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, id: :line_item_quantity class: "form-control", step: "1.00" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
