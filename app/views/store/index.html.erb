@@ -9,7 +9,11 @@
         <%= sanitize(product.description) %>
         <div class="price_line">
           <span class="price"><%= product.category %></span>
-          <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+          <!-- <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %> -->
+          <%= form_tag line_items_path(product_id: product) do %>
+            <%= number_field_tag :quantity %>
+            <%= submit_tag "Add to cart" %>
+          <% end %>
         </div>
       </div>
     <% end %>
