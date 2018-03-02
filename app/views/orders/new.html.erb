@@ -3,6 +3,8 @@
   <%= render 'form', order: @order %> </fieldset>
   <%= link_to 'Back', url_for(:back) %>
   <% @products.each do |item| %>
-    <%= item.title %>
+    <% @line_items.each do |product| %>
+      <%= item.title %> &times; <%= product.quantity %><br/>
+    <% end %>
   <% end %>
 </div>
