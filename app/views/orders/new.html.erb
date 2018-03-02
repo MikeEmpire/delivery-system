@@ -1,4 +1,8 @@
 <div class="depot_form"> <fieldset>
   <legend>Please Enter Your Details</legend>
   <%= render 'form', order: @order %> </fieldset>
+  <%= link_to 'Back', url_for(:back) %>
+  <% @products.each do |item| %>
+    <%= item.title %>
+  <% end %>
 </div>

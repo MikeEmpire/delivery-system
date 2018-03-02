@@ -18,6 +18,11 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @line_items = @cart.line_items
+    @line_items.each do |product|
+      product = @line_items.collect(&:product_id)
+      @products = Product.where(id: product)
+    end
   end
 
   # GET /orders/1/edit
