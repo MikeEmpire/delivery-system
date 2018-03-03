@@ -1,0 +1,11 @@
+<h1>Dear <%= @order.name %></h1>
+
+<p>Thank you for your recent order from 1Up Delivery Service.</p>
+
+<p>You ordered the following items!</p>
+
+<%= render @order.line_items %>
+
+<p>Your address</p>
+
+<%= @order.address %>

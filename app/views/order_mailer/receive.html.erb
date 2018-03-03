@@ -1,0 +1,9 @@
+<h1>Order Notification</h1>
+
+<p>Order coming in from:</p>
+
+<%= @order.address%>
+
+<p><%= @order.name %> ordered the following items</p>
+
+<%= render @order.line_items %>
