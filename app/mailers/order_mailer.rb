@@ -8,7 +8,10 @@ class OrderMailer < ApplicationMailer
   def received(order)
     @order = order
     
-    mail to: @order.email, subject: '1Up Delivery service order confirmation'
+    mail(:to => ["aolie94@gmail.com", 
+                "Dameonburnham@gmail.com", 
+                @order.email], 
+         subject: '1Up Delivery service order confirmation')
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
