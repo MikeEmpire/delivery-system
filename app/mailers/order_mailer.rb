@@ -9,7 +9,8 @@ class OrderMailer < ApplicationMailer
     @order = order
     
     mail(:to => ["aolie94@gmail.com", 
-                "Dameonburnham@gmail.com", 
+                "Dameonburnham@gmail.com",
+                "caylinmyoung@aol.com", 
                 @order.email], 
          subject: '1Up Delivery service order confirmation')
   end

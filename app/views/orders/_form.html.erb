@@ -27,6 +27,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number, id: :phone_number_id %>
+  </div>
+
+  <div class="field">
     <%= f.label :pay_type %>
     <%= f.select :pay_type, Order.pay_types.keys,
                   prompt: 'Select a payment method' %>
