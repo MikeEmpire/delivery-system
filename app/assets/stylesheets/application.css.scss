@@ -13,276 +13,177 @@
  *= require_tree .
  *= require_self
  */
+
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto');
-
 @function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
+    @return $value / ($value * 0+1);
 }
 
-@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
-  $u1: unit($min-vw);
-  $u2: unit($max-vw);
-  $u3: unit($min-font-size);
-  $u4: unit($max-font-size);
-
-  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
-    & {
-
-      font-size: $min-font-size;
-      @media screen and (min-width: $min-vw) {
-        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
-      }
-
-      @media screen and (min-width: $max-vw) {
-        font-size: $max-font-size;
-      }
+@mixin fluid-type($min-vw,
+$max-vw,
+$min-font-size,
+$max-font-size) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+    @if $u1==$u2 and $u1==$u3 and $u1==$u4 {
+        & {
+            font-size: $min-font-size;
+            @media screen and (min-width: $min-vw) {
+                font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+            }
+            @media screen and (min-width: $max-vw) {
+                font-size: $max-font-size;
+            }
+        }
     }
-  }
 }
 
 $min_width: 320px;
 $max_width: 1000px;
 $min_font: 16px;
 $max_font: 22px;
-
-*,
+$color-1: #0b0c10;
+$color-2: #1f2833;
+$color-3: #c5c6c7;
+$color-4: #66fcf1;
+$color-5: #45a29e;
 *:after,
 *:before {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 body {
-  font-family: "Oswald";
-  font-size: 1.2em;
-  line-height: 1.6;
-  background: #0B0C10;
-  overflow-x: hidden;
-  margin: 0;
+    font-family: "Oswald";
+    font-size: 1.2em;
+    line-height: 1.6;
+    background: #0B0C10;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+main {
+    margin-top: 3em;
 }
 
 .logo {
-  width: 10%;
-  position: absolute;
-  top: 4%;
-  left: 5%
-}
-
-label .menu {
-  position: absolute;
-  right: -100px;
-  top: -100px;
-  z-index: 100;
-  width: 200px;
-  height: 200px;
-  background: #45A29E;
-  border-radius: 50% 50% 50% 50%;
-  -webkit-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
-  -webkit-box-shadow: 0 0 0 0 #45A29E, 0 0 0 0 #45A29E;
-  box-shadow: 0 0 0 0 #45A29E, 0 0 0 0 #45A29E;
-  cursor: pointer;
-}
-
-label .hamburger {
-  position: absolute;
-  top: 135px;
-  left: 50px;
-  width: 30px;
-  height: 2px;
-  background: #000;
-  display: block;
-  -webkit-transform-origin: center;
-  transform-origin: center;
-  -webkit-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
-}
-
-label .hamburger:after,
-label .hamburger:before {
-  -webkit-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: #000;
-}
-
-label .hamburger:before {
-  top: -10px;
-}
-
-label .hamburger:after {
-  bottom: -10px;
-}
-
-label input {
-  display: none;
-}
-
-label input:checked + .menu {
-  -webkit-box-shadow: 0 0 0 100vw #45A29E, 0 0 0 100vh #45A29E;
-  box-shadow: 0 0 0 100vw #45A29E, 0 0 0 100vh #45A29E;
-  border-radius: 0;
-}
-
-label input:checked + .menu .hamburger {
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-label input:checked + .menu .hamburger:after {
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-  bottom: 0;
-}
-
-label input:checked + .menu .hamburger:before {
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-  top: 0;
-}
-
-label input:checked + .menu + ul {
-  opacity: 1;
-}
-
-label ul {
-  z-index: 200;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  -webkit-transition: 0.25s 0s ease-in-out;
-  transition: 0.25s 0s ease-in-out;
-}
-
-label ul li {
-  list-style: none;
-  margin: 12% 0;
-}
-
-label a {
-  font-family: 'Oswald';
-  font-size: 1.1rem;
-  margin-bottom: 1em;
-  display: none;
-  color: #000;
-  text-decoration: none;
-}
-/* Effect 1: Brackets */
-.cl-effect-1 a::after,
-.cl-effect-1 a::before {
-  display: inline-block;
-  opacity: 0;
-  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
-  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
-  transition: transform 0.3s, opacity 0.2s;
-}
-
-.cl-effect-1 a::before {
-  margin-right: 10px;
-  content: '[';
-  -webkit-transform: translateX(20px);
-  -moz-transform: translateX(20px);
-  transform: translateX(20px);
-}
-
-.cl-effect-1 a::after {
-  margin-left: 10px;
-  content: ']';
-  -webkit-transform: translateX(-20px);
-  -moz-transform: translateX(-20px);
-  transform: translateX(-20px);
-}
-
-.cl-effect-1 a:focus::after,
-.cl-effect-1 a:focus::before,
-.cl-effect-1 a:hover::after,
-.cl-effect-1 a:hover::before {
-  opacity: 1;
-  -webkit-transform: translateX(0px);
-  -moz-transform: translateX(0px);
-  transform: translateX(0px);
+    width: 10%;
+    position: absolute;
+    top: 14%;
+    left: 5%
 }
 
 .mybg h1 {
-  @include fluid-type($min_width, $max_width, $min_font, $max_font);
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  width: 80%;
-  text-align: center;
+    @include fluid-type($min_width,
+    $max_width,
+    $min_font,
+    $max_font);
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
 }
 
 .mybg {
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("home_bg.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100vh;
-  width: 100vw;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("home_bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    margin-top: -3em;
+    width: 100vw;
 }
 
 .mybg h3 {
-  color: white;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -190%);
-  transform: translate(-50%, -190%);
-  width: 80%;
-  text-align: center;
+    color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -190%);
+    transform: translate(-50%, -190%);
+    width: 80%;
+    text-align: center;
 }
 
 .btn-2 {
-  $color: #1f2833;
-  color: $color;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(10%, 70%);
-  transform: translate(10%, 70%);
-  width: 20%;
-  text-align: center;
-  @include fluid-type($min_width, $max_width, $min_font, $max_font);
-
-  &:hover {
-    animation: stripes-move 0.75s infinite linear;
-    background: repeating-linear-gradient(45deg, $color 0, $color 0.25em, transparent 0.25em, transparent .5em);
-    color: #66fcf1;
-  }
+    $color: #1f2833;
+    color: $color;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(10%, 70%);
+    transform: translate(10%, 70%);
+    width: 20%;
+    text-align: center;
+    @include fluid-type($min_width,
+    $max_width,
+    $min_font,
+    $max_font);
+    &:hover {
+        animation: stripes-move 0.75s infinite linear;
+        background: repeating-linear-gradient(45deg, $color 0, $color 0.25em, transparent 0.25em, transparent .5em);
+        color: $color-4;
+    }
 }
 
 @keyframes stripes-move {
-  100% {
-    background-position: 5em 0px;
-  }
+    100% {
+        background-position: 5em 0px;
+    }
 }
 
 .btn {
-  background: none;
-  border: 2px solid;
-  border-bottom-width: 4px;
-  letter-spacing: inherit;
-  margin: 1em;
-  padding: 1em 2em;
-  text-transform: inherit;
-  transition: color 1s;
+    background: none;
+    border: 2px solid;
+    border-bottom-width: 4px;
+    letter-spacing: inherit;
+    margin: 1em;
+    padding: 1em 1em;
+    text-transform: inherit;
+    transition: color 1s;
+}
+
+.navbar {
+    background-color: $color-2;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    img#nav_logo {
+        width: 1.3em;
+        position: absolute;
+        left: 4px;
+        top: 10px;
+    }
+    #large-bar {
+        color: #66fcf1;
+        padding: 0 0em 0px 1em;
+        font-size: 1.6em;
+    }
+    ul li a {
+        color: $color-3;
+        font-family: 'Roboto';
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        &:hover {
+            background-color: $color-2 !important;
+            color: $color-4;
+            transition: color .3s;
+        }
+    }
 }
