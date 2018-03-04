@@ -1,3 +1,12 @@
 // Place all the styles related to the Store controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$color-1: #0b0c10;
+$color-2: #1f2833;
+$color-3: #c5c6c7;
+$color-4: #66fcf1;
+$color-5: #45a29e;
+.store h1 {
+    color: $color-3;
+    text-align: center;
+}
