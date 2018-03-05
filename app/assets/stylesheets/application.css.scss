@@ -15,7 +15,7 @@
  */
 
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto');
 @function strip-unit($value) {
     @return $value / ($value * 0+1);
 }
@@ -181,7 +181,7 @@ main {
         letter-spacing: 3px;
         text-transform: uppercase;
         &:hover {
-            background-color: $color-2 !important;
+            background-color: transparent !important;
             color: $color-4;
             transition: color .3s;
         }
