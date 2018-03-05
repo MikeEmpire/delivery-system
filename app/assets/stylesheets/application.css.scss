@@ -187,3 +187,9 @@ main {
         }
     }
 }
+
+@media only screen and (max-width: 600px){
+  .store #price-section #pricing-table {
+    height: 120vh;
+  }
+}
