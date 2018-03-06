@@ -9,6 +9,13 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  if ENV['REDIS_URL']
+    config.action_controller.perform_caching = true
+    config.cache_store = :redis_store
+    else
+    config.action_controller.perform_caching = false
+  end
+
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
   Paperclip.options[:log] = true
