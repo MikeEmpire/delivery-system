@@ -1,34 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong> title:</strong>
-  <%= @product.title %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-8 col-xs-8">
+      <%= image_tag @product.image, class: "header" %>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-4">
+      <h2><%= @product.title %></h2>
+      <h6><%= @product.description %></h6>
+      <h6><%= @product.details %></h6>
+      <p>Category: <%= @product.category %></p>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Details:</strong>
-  <%= @product.details %>
-</p>
-
-<p>
-  <strong>Category</strong>
-  <%= @product.category %>
-</p>
-
-<p>
-  <strong>Stock:</strong>
-  <%= @product.stock %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @product.image %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Shop', store_index_path %>
+<% if user_signed_in? %>
+  <% if current_user.try(:admin?) %>
+    <%= link_to '| Edit Products', edit_product_path(@product) %>
+    <%= link_to '| All Products', products_path %>
+  <% end %>
+<% end %>
