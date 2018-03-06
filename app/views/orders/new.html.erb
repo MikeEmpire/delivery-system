@@ -1,10 +1,21 @@
-<div class="depot_form"> <fieldset>
-  <legend>Please Enter Your Details</legend>
-  <fieldset><%= render 'form', order: @order %> </fieldset>
-  <%= link_to 'Back', url_for(:back) %>
-  <% @products.each do |item| %>
-    <% @line_items.each do |product| %>
-      <%= product.quantity %> grams of <%= item.title %><br/>
-    <% end %>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="depot_form"> <fieldset>
+        <legend>Please Enter Your Details</legend>
+        <fieldset><%= render 'form', order: @order %> </fieldset>
+      </div>
+    </div>
+    <div id="order-list" class="col-md-4">
+      <h3>Your Order:</h3>
+      <ul>
+        <% @products.each do |item| %>
+          <% @line_items.each do |product| %>
+            <li><%= product.quantity %> grams of <%= item.title %></li>
+          <% end %>
+        <% end %>
+      </ul>
+      <%= link_to 'Back', url_for(:back), id: "back" %>
+    </div>
+  </div>
 </div>

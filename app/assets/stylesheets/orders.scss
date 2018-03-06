@@ -1,3 +1,37 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$color-1: #0b0c10;
+$color-2: #1f2833;
+$color-3: #c5c6c7;
+$color-4: #66fcf1;
+$color-5: #45a29e;
+
+.orders {
+  color: $color-3;
+
+  legend {
+    color: $color-3;
+  }
+
+  select {
+    background-color: $color-2;
+  }
+  input[type="submit"] {
+    background-color: $color-2;
+  }
+  #order-list ul {
+    margin: 20% 0;
+
+    li {
+      font-size: large;
+      font-family: "Roboto";
+      margin: 4% 0;
+    }
+  }
+
+  #back {
+    color: $color-5;
+    margin-top: 10%;
+  }
+}
