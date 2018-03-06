@@ -18,7 +18,5 @@
 //= require bootstrap-sprockets
 
 document.addEventListener("turbolinks:load", function() {
-  $(".menu").click(function() {
-    $("label a").toggle();
-  });
+  $('a[href="' + this.location.pathname + '"]').parents('li,ul').addClass('active');
 })

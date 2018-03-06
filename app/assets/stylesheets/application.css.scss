@@ -15,7 +15,7 @@
  */
 
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Oswald:300,400|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700|Roboto');
 @function strip-unit($value) {
     @return $value / ($value * 0+1);
 }
@@ -186,6 +186,15 @@ main {
             transition: color .3s;
         }
     }
+}
+li.active {
+  text-decoration: line-through;
+}
+button.navbar-toggle {
+  background-color: $color-1;
+}
+span.icon-bar {
+    background-color: $color-3;
 }
 .pages h3 {
     color: white;

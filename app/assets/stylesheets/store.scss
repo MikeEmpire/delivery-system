@@ -91,6 +91,10 @@ $color-5: #45a29e;
         position: relative;
       }
       @media only screen and (max-width: 600px) {
+        .plan:first-child {
+          margin-bottom: 10%;
+        }
+        
         .plan {
           width: 100%;
         }
@@ -117,6 +121,8 @@ $color-5: #45a29e;
 
     h1 {
       font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 3px;
       margin-left: 2em;
       margin-top: 0;
       padding-top: 2em;
@@ -140,6 +146,8 @@ $color-5: #45a29e;
 
     h1 {
       font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 3px;
       margin-left: 2em;
       margin-top: 0;
       padding-top: 2em;
@@ -157,7 +165,7 @@ $color-5: #45a29e;
       color: #c5c6c7;
       border: none;
       border-radius: 10px;
-      text-transform: uppercase;
+      text-transform: capitalize;
       margin-bottom: 10%;
     }
 
