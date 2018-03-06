@@ -187,6 +187,18 @@ main {
         }
     }
 }
+.pages h3 {
+    color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -190%);
+    transform: translate(-50%, -190%);
+    width: 80%;
+    text-align: center;
+    text-transform: uppercase;
+}
 
 @media only screen and (max-width: 600px){
   .store #price-section #pricing-table {

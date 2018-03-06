@@ -1,6 +1,12 @@
 // Place all the styles related to the Carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$color-1: #0b0c10;
+$color-2: #1f2833;
+$color-3: #c5c6c7;
+$color-4: #66fcf1;
+$color-5: #45a29e;
+
 #ex4 .p1[data-count]:after{
   position:absolute;
   right:10%;
@@ -15,4 +21,33 @@
   text-align:center;
   min-width: 1em;
   //font-weight:bold;
+}
+
+.carts {
+  color: $color-3;
+  #cart ul {
+    list-style: square;
+    font-family: 'Roboto';
+    li {
+      margin-bottom: 10%;
+    }
+  }
+  h2 {
+    font-family: 'Oswald';
+    margin-top: 5%;
+    margin-bottom: 10%;
+    text-align: center;
+  }
+  #buttons {
+    color: $color-3;
+    input {
+      margin-bottom: 20%;
+    }
+    #checkout {
+      background-color: $color-2;
+    }
+    #empty {
+      background-color: chocolate;
+    }
+  }
 }
